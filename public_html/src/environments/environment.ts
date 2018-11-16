@@ -5,7 +5,7 @@
 export const environment = {
   production: false
   agm: {
-    apiKey: "AIzaSyCcZUrD9rVHR3hqCS900t3C_lmjfKSMnWQ"
+    apiKey: ""
   }
 };
 

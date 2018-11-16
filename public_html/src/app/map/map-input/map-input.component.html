@@ -1,0 +1,46 @@
+<form [formGroup]="CustomerInputForm">
+  <div class="form-group">
+    <label for="addressInput">Direccion</label>
+    <input
+    ngx-google-places-autocomplete [options]='options'
+    #placesRef="ngx-places"
+    (onAddressChange)="handleAddressChange($event)"
+    id="addressInput"
+    class="form-control"
+    placeholder="inserte y elija la dirección correcta..."
+    type="text"
+    formControlName="address"
+    />
+    <!-- <small id="emailHelp" class="form-text text-muted">Can add something here.</small> -->
+  </div>
+
+  <div class="form-group">
+    <label for="priceInput">Precio ($)</label>
+    <input
+    name="priceInput"
+    class="form-control"
+    placeholder="precio del terreno..."
+    type="text"
+    formControlName="price"
+    />
+    <small id="emailHelp" class="form-text text-muted">Poner precio en dolares.</small>
+  </div>
+
+  <div class="form-group">
+    <label for="priceInput">Area del terreno (m<sup>2</sup>)</label>
+    <input
+    name="priceInput"
+    class="form-control"
+    placeholder="area del terreno..."
+    type="text"
+    formControlName="area"
+    />
+    <!-- <small id="emailHelp" class="form-text text-muted">Poner precio en dolares.</small> -->
+  </div>
+
+  <div class="form-group">
+    <!-- <button type="button" name="button">Receive data</button> -->
+    <!-- [disabled]="CustomerInputForm.invalid" -->
+    <button (click)="submitForm()" class="btn btn-outline-secondaryn" type="button" name="button">Ver Resultados</button>
+  </div>
+</form>

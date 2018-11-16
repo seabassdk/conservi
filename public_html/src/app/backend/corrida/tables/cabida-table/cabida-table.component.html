@@ -1,0 +1,224 @@
+<div class="mat-elevation-z8">
+  <table class="table table-bordered" mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- Id Column -->
+    <ng-container matColumnDef="primerAptNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Numero</th>
+      <td mat-cell *matCellDef="let row">{{row.primerAptNumber}}</td>
+    </ng-container>
+    <ng-container matColumnDef="primerAptType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+      <td mat-cell *matCellDef="let row">{{row.primerAptType}}</td>
+    </ng-container>
+    <ng-container matColumnDef="primerAptArea">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area</th>
+      <td mat-cell *matCellDef="let row">{{row.primerAptArea | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="primerAptCocheras">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cocheras</th>
+      <td mat-cell *matCellDef="let row">{{row.primerAptCocheras}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipicoAptNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Numero</th>
+      <td mat-cell *matCellDef="let row">{{row.tipicoAptNumber}}</td>
+    </ng-container>
+    <ng-container matColumnDef="tipicoAptType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+      <td mat-cell *matCellDef="let row">{{row.tipicoAptType}}</td>
+    </ng-container>
+    <ng-container matColumnDef="tipicoAptArea">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area</th>
+      <td mat-cell *matCellDef="let row">{{row.tipicoAptArea | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="tipicoAptCocheras">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cocheras</th>
+      <td mat-cell *matCellDef="let row">{{row.tipicoAptCocheras}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="primerAptPorPiso">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Dptos.</th>
+      <td mat-cell *matCellDef="let row">{{row.primerAptPorPiso}}</td>
+    </ng-container>
+    <ng-container matColumnDef="primerPisoAreaTechada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Techada</th>
+      <td mat-cell *matCellDef="let row">{{row.primerPisoAreaTechada | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="primerPisoAreaComunTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Comun</th>
+      <td mat-cell *matCellDef="let row">{{row.primerPisoAreaComunTotal | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="primerPisoAreaVendible">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Vendible</th>
+      <td mat-cell *matCellDef="let row">{{row.primerPisoAreaVendible | number:'1.0-2'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipicoAptPorPiso">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Dptos.</th>
+      <td mat-cell *matCellDef="let row">{{row.tipicoAptPorPiso}}</td>
+    </ng-container>
+    <ng-container matColumnDef="tipicoPisoAreaTechada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Techada</th>
+      <td mat-cell *matCellDef="let row">{{row.tipicoPisoAreaTechada | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="tipicoPisoAreaComunTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Comun</th>
+      <td mat-cell *matCellDef="let row">{{row.tipicoPisoAreaComunTotal | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="tipicoPisoAreaVendible">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Vendible</th>
+      <td mat-cell *matCellDef="let row">{{row.tipicoPisoAreaVendible | number:'1.0-2'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="terrazaAptNumber">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Numero</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaAptNumber}}</td>
+    </ng-container>
+    <ng-container matColumnDef="terrazaAptType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaAptType}}</td>
+    </ng-container>
+    <ng-container matColumnDef="terrazaAptAreaTechada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Techada</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaAptAreaTechada | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="terrazaAptAreaLibre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Libre</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaAptAreaLibre | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="terrazaAptCocheras">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cocheras</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaAptCocheras}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="terrazaAptPorPiso">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Departamentos</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaAptPorPiso}}</td>
+    </ng-container>
+    <ng-container matColumnDef="terrazaPisoAreaTechada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Techada</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaPisoAreaTechada | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="terrazaPisoAreaComunTotal">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Comun</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaPisoAreaComunTotal | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="terrazaPisoAreaLibre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Libre</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaPisoAreaLibre | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="terrazaPisoAreaVendible">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Vendible</th>
+      <td mat-cell *matCellDef="let row">{{row.terrazaPisoAreaVendible | number:'1.0-2'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="totalPisos">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Pisos</th>
+      <td mat-cell *matCellDef="let row">{{row.totalPisos}}</td>
+    </ng-container>
+    <ng-container matColumnDef="totalApts">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Deparamentos</th>
+      <td mat-cell *matCellDef="let row">{{row.totalApts}}</td>
+    </ng-container>
+    <ng-container matColumnDef="totalAreaTechada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Techada</th>
+      <td mat-cell *matCellDef="let row">{{row.totalAreaTechada | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="totalAreaComun">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Comun</th>
+      <td mat-cell *matCellDef="let row">{{row.totalAreaComun | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="totalAreaLibre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Libre</th>
+      <td mat-cell *matCellDef="let row">{{row.totalAreaLibre | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="totalAreaVendible">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area Vendible</th>
+      <td mat-cell *matCellDef="let row">{{row.totalAreaVendible | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="totalcocheras">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cocheras</th>
+      <td mat-cell *matCellDef="let row">{{row.totalcocheras}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="cocherasTitulo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td mat-cell *matCellDef="let row">{{row.cocherasTitulo }}</td>
+    </ng-container>
+    <ng-container matColumnDef="cocherasCantidad">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad Cocheras</th>
+      <td mat-cell *matCellDef="let row">{{row.cocherasCantidad | number:'1.0-0'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="cocherasArea">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area </th>
+      <td mat-cell *matCellDef="let row">{{row.cocherasArea | number:'1.0-2'}}</td>
+    </ng-container>
+
+    <!-- VENTAS -->
+    <ng-container matColumnDef="ventasDptoCount">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>#</th>
+      <td mat-cell *matCellDef="let row">{{row.ventasDptoCount }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasDptoNum">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Piso</th>
+      <td mat-cell *matCellDef="let row">{{row.ventasDptoNum }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasDptoTipo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+      <td mat-cell *matCellDef="let row">{{row.ventasDptoTipo }}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasAreaTechada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>AT m<sup>2</sup></th>
+      <td mat-cell *matCellDef="let row">{{row.ventasAreaTechada | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasAreaLibre">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>AL m<sup>2</sup></th>
+      <td mat-cell *matCellDef="let row">{{row.ventasAreaLibre | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasAreaOcupada">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>AO m<sup>2</sup></th>
+      <td mat-cell *matCellDef="let row">{{row.ventasAreaOcupada | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasPrecioDptoMq">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>$ x m<sup>2</sup></th>
+      <td mat-cell *matCellDef="let row">{{row.ventasPrecioDptoMq | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasPrecioDpto">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Dpto</th>
+      <td mat-cell *matCellDef="let row">{{row.ventasPrecioDpto | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasPrecioCochera">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cocheras</th>
+      <td mat-cell *matCellDef="let row">{{row.ventasPrecioCochera | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="ventasPrecioDptoSinCochera">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Precio S/E. </th>
+      <td mat-cell *matCellDef="let row">{{row.ventasPrecioDptoSinCochera | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+    </ng-container>
+
+
+    <!-- <ng-container matColumnDef="aptType">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Tipo</th>
+      <td mat-cell *matCellDef="let row">{{row.aptType}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="aptArea">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Area</th>
+      <td mat-cell *matCellDef="let row">{{row.aptArea}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="aptCocheras">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Cocheras</th>
+      <td mat-cell *matCellDef="let row">{{row.aptCocheras}}</td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <!-- <mat-paginator #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator> -->
+</div>

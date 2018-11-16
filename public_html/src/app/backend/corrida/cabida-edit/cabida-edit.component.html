@@ -1,0 +1,391 @@
+
+<div class="container cab-container mt-4">
+  <!-- collapsable row with buttons -->
+  <div class="row" [ngbCollapse]="!isCollapsedDepas && !isCollapsedConstruccion">
+    <div class="col-sm-12 col-md-6 d-flex justify-content-center">
+      <button type="button" class="btn align-self-center" (click)="isCollapsedConstruccion = !isCollapsedConstruccion"
+        [attr.aria-expanded]="!isCollapsedConstruccion" aria-controls="collapseExample" [ngbCollapse]="!isCollapsedConstruccion"
+        [ngClass]="{'btn-outline-danger': !cabConstruccion.valid, 'btn-outline-success': cabConstruccion.valid}">
+        Ver Datos Construccion
+      </button>
+    </div>
+    <div class="col-sm-12 col-md-6 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-primary align-self-center" (click)="isCollapsedDepas = !isCollapsedDepas"
+        [attr.aria-expanded]="!isCollapsedDepas" aria-controls="collapseExample" [ngbCollapse]="!isCollapsedDepas"
+        [ngClass]="{'btn-outline-danger': !cabAreasDptos.valid, 'btn-outline-success': cabAreasDptos.valid}">
+        Ver Areas Departamentos
+      </button>
+    </div>
+  </div>
+  <div class="row" [ngbCollapse]="isCollapsedDepas && isCollapsedConstruccion">
+      <!-- Datos de construcction input -->
+    <div class="col-sm-12 col-md-6 d-flex justify-content-center" >
+      <!-- Use this button to collapse the construction card -->
+      <div class="card" [ngClass]="{'border-success': cabConstruccion.valid}"  [ngbCollapse]="isCollapsedConstruccion">
+        <div class="card-header text-center mb-2">
+          Datos de Construccion
+        </div>
+        <div class="card-body" >
+          <div [formGroup]="cabConstruccion">
+            <div class="form-group row">
+              <label for="areaTerreno" class="col-sm-7 col-form-label">Area Terreno (m<sup>2</sup>)</label>
+              <div class="col-sm-5">
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="areaTerreno"
+                        placeholder="Area"
+                        formControlName="areaTerreno">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label for="altura" class="col-sm-7 col-form-label">Altura (Pisos)</label>
+              <div class="col-sm-5">
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="altura"
+                        placeholder="Pisos"
+                        formControlName="altura">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label for="coef-area-construida" class="col-sm-8 col-form-label">Coef. Area Construida (%)</label>
+              <div class="col-sm-4">
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="coef-area-construida"
+                        placeholder="%"
+                        formControlName="coefAreaConstruida">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="coef-area-libre" class="col-sm-8 col-form-label">Coef. Area Libre (%)</label>
+              <div class="col-sm-4">
+                <input  type="text"
+                        class="form-control
+                        form-control-sm"
+                        id="coef-area-libre"
+                        placeholder="%"
+                        formControlName="coefAreaLibre">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label for="coef-area-comun" class="col-sm-8 col-form-label">Area Comun Techada (%)</label>
+              <div class="col-sm-4">
+                <input  type="text"
+                        class="form-control
+                        form-control-sm"
+                        id="coef-area-comun"
+                        placeholder="%"
+                        formControlName="coefAreaComun">
+              </div>
+            </div>
+            <hr>
+            <button type="button" class="btn" [attr.aria-expanded]="!isCollapsedConstruccion" aria-controls="collapseExample"
+                                (click)="isCollapsedConstruccion = !isCollapsedConstruccion"
+                                [ngClass]="{'btn-outline-primary': !cabConstruccion.valid, 'btn-outline-success': cabConstruccion.valid}">
+              Minimizar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Area Departamentos input -->
+    <div class="col-sm-12 col-md-6 d-flex justify-content-center" >
+      <div class="card"  [ngClass]="{'border-success': cabAreasDptos.valid}" [ngbCollapse]="isCollapsedDepas">
+        <div class="card-header text-center mb-2">
+          Areas de Departamentos
+        </div>
+        <div class="card-body">
+          <div [formGroup]="cabAreasDptos">
+            <div class="form-group row">
+              <label for="area-maxima" class="col-sm-7 col-form-label">Area Maxima (m<sup>2</sup>)</label>
+              <div class="col-sm-5">
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="area-maxima"
+                        placeholder="Area Dpto."
+                        formControlName="areaMax">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="area-mediana" class="col-sm-7 col-form-label">Area Mediana (m<sup>2</sup>)</label>
+              <div class="col-sm-5">
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="area-mediana"
+                        placeholder="Area Dpto."
+                        formControlName="areaMid">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="area-minima" class="col-sm-7 col-form-label">Area Minima (m<sup>2</sup>)</label>
+              <div class="col-sm-5">
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="area-minima"
+                        placeholder="Area Dpto."
+                        formControlName="areaMin">
+              </div>
+            </div>
+            <hr>
+            <div *ngIf="cocherasPorDorm">
+              <div class="form-group row">
+                <label for="dorms-area-maxima" class="col-sm-7 col-form-label">Dormitorios Area Max.</label>
+                <div class="col-sm-5">
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="dorms-area-maxima"
+                          placeholder="# de dorms."
+                          formControlName="dormsAreaMax">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="dorms-area-mediana" class="col-sm-7 col-form-label">Dormitorios Area Med.</label>
+                <div class="col-sm-5">
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="dorms-area-mediana"
+                          placeholder="# de dorms."
+                          formControlName="dormsAreaMid">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="dorms-area-minima" class="col-sm-7 col-form-label">Dormitorios Area Min.</label>
+                <div class="col-sm-5">
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="dorms-area-minima"
+                          placeholder="# de dorms."
+                          formControlName="dormsAreaMin">
+                </div>
+              </div>
+            </div>
+            <button type="button" class="btn btn-outline-primary" (click)="isCollapsedDepas = !isCollapsedDepas"
+              [attr.aria-expanded]="!isCollapsedConstruccion" aria-controls="collapseExample"
+              [ngClass]="{'btn-outline-primary': !cabAreasDptos.valid, 'btn-outline-success': cabAreasDptos.valid}">
+              Minimizar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> <!-- Row  -->
+
+  <!-- Row for collapse buttons -->
+  <div class="row" [ngbCollapse]="!isCollapsedCocheras && !isCollapsedAreaComunPrimer">
+    <div class="col-sm-12 col-md-6 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-primary align-self-center mx-auto" (click)="isCollapsedCocheras = !isCollapsedCocheras"
+        [attr.aria-expanded]="!isCollapsedCocheras" aria-controls="collapseExample" [ngbCollapse]="!isCollapsedCocheras"
+        [ngClass]="{'btn-outline-danger': !cabCocheras.valid, 'btn-outline-success': cabCocheras.valid}">
+        Ver Datos de Cocheras
+      </button>
+    </div>
+    <div class="col-sm-12 col-md-6 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-primary align-self-center" (click)="isCollapsedAreaComunPrimer = !isCollapsedAreaComunPrimer"
+        [attr.aria-expanded]="!isCollapsedAreaComunPrimer" aria-controls="collapseExample" [ngbCollapse]="!isCollapsedAreaComunPrimer"
+        [ngClass]="{'btn-outline-danger': !cabPrimerPisoAreaComun.valid, 'btn-outline-success': cabPrimerPisoAreaComun.valid}">
+        Ver Area Comun Primer Piso
+      </button>
+    </div>
+  </div>
+  <div class="row" [ngbCollapse]="isCollapsedCocheras && isCollapsedAreaComunPrimer">
+    <!-- Datos Cocheras Inputs -->
+    <div class="col-sm-12 col-md-8 d-flex">
+      <div class="card"  [ngClass]="{'border-success': cabCocheras.valid}" [ngbCollapse]="isCollapsedCocheras">
+        <div class="card-header text-center mb-2">
+          Datos de Cocheras
+        </div>
+        <div class="card-body">
+          <div class="form-group row">
+            <label for="area-cochera" class="col-sm-5 offset-sm-1 col-form-label">Cocheras Por Dormitorio</label>
+            <div class="col-sm-5">
+              <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="cocherasPorDorm" (ngModelChange)="onCocherasDormChange($event)">
+                <label ngbButtonLabel class="btn-info">
+                  <input ngbButton type="radio" [value]="false"> No
+                </label>
+                <label ngbButtonLabel class="btn-info">
+                  <input ngbButton type="radio" [value]="true"> Si
+                </label>
+              </div>
+            </div>
+          </div>
+          <div [formGroup]="cabCocheras">
+            <div class="form-group row">
+              <label for="cocheras-visitas" class="col-sm-5 offset-sm-1 col-form-label">Cocheras Visitas (%)</label>
+              <div class="col-sm-5">
+                <input type="text"
+                        class="form-control form-control-sm"
+                        id="cocheras-visitas"
+                        placeholder="%"
+                        formControlName="cochVisitas">
+              </div>
+            </div>
+            <div class="form-group row" [ngbCollapse]="cocherasPorDorm">
+              <label for="coch-por-depa" class="col-sm-5 offset-sm-1 col-form-label">Cocheras por Departamento</label>
+              <div class="col-sm-5">
+                <input type="text"
+                        class="form-control form-control-sm"
+                        id="coch-por-depa"
+                        placeholder="# de cocheras"
+                        formControlName="cochPorDpto">
+              </div>
+            </div>
+            <hr>
+            <div class="form-group row">
+              <label for="area-tech-sotano" class="col-sm-5 offset-sm-1 col-form-label">Area Techada Sotano (%)</label>
+              <div class="col-sm-5">
+                <input type="text"
+                        class="form-control form-control-sm"
+                        id="area-tech-sotano"
+                        placeholder="% Area Terreno"
+                        formControlName="areaTechaSotano">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="min-area-tech-sotano" class="col-sm-5 offset-sm-1 col-form-label">Minima Area Techada Sotano (%)</label>
+              <div class="col-sm-5">
+                <input type="text"
+                        class="form-control form-control-sm"
+                        id="min-area-tech-sotano"
+                        placeholder="% Area Terreno"
+                        formControlName="minAreaTechaSotano">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="area-cochera" class="col-sm-5 offset-sm-1 col-form-label">Area de Cochera (m<sup>2</sup>)</label>
+              <div class="col-sm-5">
+                <input type="text"
+                        id="area-cochera"
+                        class="form-control form-control-sm"
+                        placeholder="Area"
+                        formControlName="areaCochera">
+              </div>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-outline-primary" (click)="isCollapsedCocheras = !isCollapsedCocheras"
+              [attr.aria-expanded]="!isCollapsedCocheras" aria-controls="collapseExample"
+              [ngClass]="{'btn-outline-primary': !cabCocheras.valid, 'btn-outline-success': cabCocheras.valid}">
+              Minimizar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--  Area Comun Primer piso Inputs -->
+    <div class="col-sm-12 col-md-4 d-flex justify-content-center" >
+      <div class="card"  [ngClass]="{'border-success': cabPrimerPisoAreaComun.valid}" [ngbCollapse]="isCollapsedAreaComunPrimer">
+        <div class="card-header text-center mb-2">
+          Primer Piso Area Comun
+        </div>
+        <div class="card-body">
+            <div class="form-group row">
+              <label for="area-cochera">Elegir tipo de area comun</label>
+              <select class="form-control custom-select mb-3"
+                      id="inlineFormCustomSelectPref"
+                      [(ngModel)]="primerPisoSelected"
+                      (ngModelChange)="onPrimerPisoChange($event)"
+                      name="somename">
+                <option value="1">Area Comun Tipica</option>
+                <option value="2">Area Absoluta (m<sup>2</sup>)</option>
+                <option value="3">Area Relativa (%)</option>
+              </select>
+              <div *ngIf="primerPisoSelected===1">
+                <!-- <input type="text" id="area-cochera" class="form-control form-control-sm" placeholder="Tipico"> -->
+                Igual al tipico que va ser calculado.
+              </div>
+              <div [formGroup]="cabPrimerPisoAreaComun" >
+                <div *ngIf="primerPisoSelected===2">
+                  <label for="primer-comun-absolut">Area Comun Primer Piso en (m<sup>2</sup>):</label>
+                  <input type="text"
+                          id="primer-comun-absolut"
+                          class="form-control form-control-sm"
+                          placeholder="Area Absoluta"
+                          formControlName="areaComunAbs">
+                </div>
+                <div *ngIf="primerPisoSelected===3">
+                  <label for="primer-comun-absolut">Area Comun Primer Piso (% de Area Techada):</label>
+                  <input type="text"
+                          id="area-cochera"
+                          class="form-control form-control-sm"
+                          placeholder="Area Relativa (%)"
+                          formControlName="areaComunRel">
+                </div>
+              </div>
+            </div>
+            <hr>
+            <button type="button" class="btn btn-outline-primary" (click)="isCollapsedAreaComunPrimer = !isCollapsedAreaComunPrimer"
+              [attr.aria-expanded]="!isCollapsedAreaComunPrimer" aria-controls="collapseExample"
+              [ngClass]="{'btn-outline-primary': !cabPrimerPisoAreaComun.valid, 'btn-outline-success': cabPrimerPisoAreaComun.valid}">
+              Minimizar
+            </button>
+
+        </div>
+      </div>
+    </div>
+  </div><!--  row -->
+
+  <!-- row for collapse buttons -->
+  <div class="row" [ngbCollapse]="!isCollapsedTerraza">
+    <div class="col-sm-12 col-md-6 d-flex justify-content-center">
+      <button type="button" class="btn btn-outline-primary align-self-center" (click)="isCollapsedTerraza = !isCollapsedTerraza"
+        [attr.aria-expanded]="!isCollapsedTerraza" aria-controls="collapseExample" [ngbCollapse]="!isCollapsedTerraza"
+        [ngClass]="{'btn-outline-danger': !cabTerraza.valid, 'btn-outline-success': cabTerraza.valid}">
+        Ver Opcion de Terrazas
+      </button>
+    </div>
+  </div>
+  <div class="row" [ngbCollapse]="isCollapsedTerraza">
+    <div class="col-sm-12 d-flex" >
+      <div class="card"  [ngClass]="{'border-success': cabTerraza.valid}" [ngbCollapse]="isCollapsedTerraza">
+        <div class="card-header text-center mb-2">
+          Opcion de Terrazas
+        </div>
+        <div class="card-body">
+          <div class="btn-group btn-group-toggle" ngbRadioGroup name="radioBasic" [(ngModel)]="terraza" (ngModelChange)="onTerrazaChange($event)">
+            <label ngbButtonLabel class="btn-info">
+              <input ngbButton type="radio" [value]="false"> Sin Terraza
+            </label>
+            <label ngbButtonLabel class="btn-info">
+              <input ngbButton type="radio" [value]="true"> Con Terraza
+            </label>
+          </div>
+          <hr>
+          <div [formGroup]="cabTerraza">
+            <div *ngIf="terraza">
+              <span>Las siguientes propociones a base del Area Techada Total</span>
+              <hr>
+              <label for="ter-area-terraza">Proporcion Terraza Ultimo piso (%)</label>
+              <input type="text"
+                      id="area-terraza"
+                      class="form-control form-control-sm col-sm-5"
+                      placeholder="Proporcion Terraza (%)"
+                      formControlName="terrazaAreaLibre">
+
+              <label for="ter-area-techada" class="mt-4">Proporcion Area Techada Ultimo piso(%)</label>
+              <input type="text"
+                      id="ter-area-techada"
+                      class="form-control form-control-sm col-sm-5"
+                      placeholder="Proporcion Area Techada (%)"
+                      formControlName="terrazaAreaTechada">
+            </div>
+          </div>
+          <button type="button" class="btn btn-outline-primary" (click)="isCollapsedTerraza = !isCollapsedTerraza"
+            [attr.aria-expanded]="!isCollapsedTerraza" aria-controls="collapseExample"
+            [ngClass]="{'btn-outline-primary': !cabTerraza.valid, 'btn-outline-success': cabTerraza.valid}">
+            Minimizar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!--  container -->
+
+<div class="container">
+  <app-tables *ngIf="cabida.valid" [proyectoForm]="proyectoForm"></app-tables>
+</div>

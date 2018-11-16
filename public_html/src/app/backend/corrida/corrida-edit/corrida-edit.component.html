@@ -1,0 +1,656 @@
+<!-- [ngbCollapse]="isCollapsedDepas && isCollapsedConstruccion -->
+<div class="row mt-5">
+    <!-- Datos de Corrida input -->
+  <div class="col-sm-12 col-md-6 d-flex justify-content-center" >
+    <!-- [ngClass]="{'border-success': cabConstruccion.valid}"  [ngbCollapse]="isCollapsedConstruccion" -->
+    <div class="card" >
+      <div class="card-header text-center mb-2">
+        Datos de Construccion
+      </div>
+      <div class="card-body" >
+        <!-- The Form for Terreno Costos -->
+        <div [formGroup]="terrenoCostos">
+          <div class="form-group row">
+            <label for="costoTerrenoSoles" class="col-sm-7 col-form-label">Costo Terreno </label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">S/.</span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="costoTerrenoSoles"
+                        placeholder="S/."
+                        formControlName="costoTerrenoSoles">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="costoTerrenoSolesMq" class="col-sm-7 col-form-label">Costo Terreno</label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">S/. x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="costoTerrenoSolesMq"
+                        placeholder="S/. x m²"
+                        formControlName="costoTerrenoSolesMq">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <label for="costoTerrenoDolares" class="col-sm-7 col-form-label">Costo Terreno</label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="costoTerrenoDolares"
+                        placeholder="$"
+                        formControlName="costoTerrenoDolares">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="costoTerrenoDolaresMq" class="col-sm-7 col-form-label">Costo Terreno</label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="costoTerrenoDolaresMq"
+                        placeholder="$ x m²"
+                        formControlName="costoTerrenoDolaresMq">
+              </div>
+            </div>
+          </div>
+          <!-- <button type="button" class="btn" [attr.aria-expanded]="!isCollapsedConstruccion" aria-controls="collapseExample"
+                              (click)="isCollapsedConstruccion = !isCollapsedConstruccion"
+                              [ngClass]="{'btn-outline-primary': !cabConstruccion.valid, 'btn-outline-success': cabConstruccion.valid}">
+            Minimizar
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Area Departamentos input -->
+  <div class="col-sm-12 col-md-6 d-flex justify-content-center" >
+    <!-- [ngClass]="{'border-success': cabAreasDptos.valid}" [ngbCollapse]="isCollapsedDepas" -->
+    <div class="card"  >
+      <div class="card-header text-center mb-2">
+        Areas de Departamentos
+      </div>
+      <div class="card-body">
+        <div [formGroup]="proyectoVentas">
+          <div class="form-group row">
+            <label for="area-maxima" class="col-sm-7 col-form-label">Precio</label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">S/. x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="area-maxima"
+                        placeholder="S/. x m²"
+                        formControlName="ventasSolesMq">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="ventasDolaresMq" class="col-sm-7 col-form-label">Precio</label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="ventasDolaresMq"
+                        placeholder="$ x m²"
+                        formControlName="ventasDolaresMq">
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <label for="ventasCocherasSolesMq" class="col-sm-7 col-form-label">Cocheras Precio</label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">S/. x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="ventasCocherasSolesMq"
+                        placeholder="S/. x m²"
+                        formControlName="ventasCocherasSolesMq">
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="ventasCocherasDolaressMq" class="col-sm-7 col-form-label">Cocheras Precio</label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="ventasCocherasDolaressMq"
+                        placeholder="$ x m²"
+                        formControlName="ventasCocherasDolaressMq">
+              </div>
+
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row">
+            <label for="ventasCoeffAreaLibre" class="col-sm-7 col-form-label">Precio Area Libre (% de precio)</label>
+            <div class="col-sm-5">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">%</span>
+                </div>
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="ventasCoeffAreaLibre"
+                        placeholder="%"
+                        formControlName="ventasCoeffAreaLibre">
+              </div>
+
+            </div>
+          </div>
+          <!-- <button type="button" class="btn btn-outline-primary" (click)="isCollapsedDepas = !isCollapsedDepas"
+            [attr.aria-expanded]="!isCollapsedConstruccion" aria-controls="collapseExample"
+            [ngClass]="{'btn-outline-primary': !cabAreasDptos.valid, 'btn-outline-success': cabAreasDptos.valid}">
+            Minimizar
+          </button> -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div> <!-- Row  -->
+
+<div class="row mt-4 mb-3">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header text-center mb-2">
+        <button type="button" class="btn text-left pl-5" (click)="isCostosDirectosCollapsed = !isCostosDirectosCollapsed"
+        [attr.aria-expanded]="!isCostosDirectosCollapsed" aria-controls="collapseExample" style="">
+          Costos Directos
+        </button>
+      </div>
+      <div class="card-body" *ngIf="isCostosDirectosCollapsed">
+        <div [formGroup]="costosDirectos">
+
+          <div class="form-group row col-sm-12" >
+            <label for="costoConstruccionSotano" class="col-sm-5 col-form-label">Costo de Construccion Sotano </label>
+            <div class="col-sm-3">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="costoConstruccionSotano"
+                        placeholder=""
+                        formControlName="costoConstruccionSotano">
+                <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row col-sm-12" >
+            <label for="costoConstruccionDptos" class="col-sm-5 col-form-label">Costo de Construccion Departamentos </label>
+            <div class="col-sm-3">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="costoConstruccionDptos"
+                        placeholder=""
+                        formControlName="costoConstruccionDptos">
+                <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row col-sm-12" >
+            <label for="costoConstruccionAreaComun" class="col-sm-5 col-form-label">Costo de Construccion Area Comun </label>
+            <div class="col-sm-3">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="costoConstruccionAreaComun"
+                        placeholder=""
+                        formControlName="costoConstruccionAreaComun">
+                <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+          <hr>
+          <div class="form-group row col-sm-12" >
+            <label for="sistemaContraincendio" class="col-sm-4 col-form-label">Sistema Contraincendio </label>
+            <div class="col-sm-3">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="sistemaContraincendio"
+                        placeholder=""
+                        formControlName="sistemaContraincendio">
+                <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+          <div class="form-group row col-sm-12" >
+            <label for="extraccionMonoxido" class="col-sm-4 col-form-label">Extracción de Monoxido </label>
+            <div class="col-sm-3">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup></span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm"
+                        id="extraccionMonoxido"
+                        placeholder=""
+                        formControlName="extraccionMonoxido">
+                <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+          <div class="form-group row col-sm-12" >
+            <label for="ascensor" class="col-sm-3 col-form-label">Ascensor </label>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">unidades</span>
+                  </div>
+                  <input  type="text"
+                          class="form-control form-control-sm text-center"
+                          id="ascensor"
+                          placeholder=""
+                          formControlName="ascensorCantidad">
+                <button type="button" class="btn btn-danger btn-sm btn-quantity"><i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-sm btn-quantity"><i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ por unidad</span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm text-center"
+                        id="ascensor"
+                        placeholder=""
+                        formControlName="ascensor">
+                <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+          <div class="form-group row col-sm-12" >
+            <label for="bombasElectricas" class="col-sm-3 col-form-label">Bombas Electricas </label>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">unidades</span>
+                  </div>
+                  <input  type="text"
+                          class="form-control form-control-sm text-center"
+                          id="bombasElectricas"
+                          placeholder=""
+                          formControlName="bombasElectricasCantidad">
+                <button type="button" class="btn btn-danger btn-sm btn-quantity"
+                  (click)="onDecreaseAmount(costosDirectos.get('bombasElectricasCantidad'))">
+                  <i class="fas fa-minus"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-sm btn-quantity"
+                  (click)="onIncreaseAmount(costosDirectos.get('bombasElectricasCantidad'))">
+                  <i class="fas fa-plus"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="input-group input-group-sm">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="inputGroup-sizing-sm">$ por unidad</span>
+                </div>
+                <!-- input -->
+                <input  type="text"
+                        class="form-control form-control-sm text-center"
+                        id="bombasElectricas"
+                        placeholder=""
+                        formControlName="bombasElectricas">
+                <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                </button> -->
+              </div>
+            </div>
+          </div>
+          <!-- Add new items -->
+          <hr>
+          <div formArrayName="costosDirectosPlus">
+
+            <div *ngFor="let costoDirectoControl of costosDirectos.get('costosDirectosPlus').controls; let i = index"
+                  [formGroupName]="i" class="form-group row col-sm-12">
+
+              <div class="col-sm-1 d-flex align-items-center">
+                <button type="button" class="btn btn-danger btn-sm" (click)="onDeleteCostoDirecto(i)"><i class="fa fa-times" aria-hidden="true"></i></button>
+              </div>
+              <div class="col-sm-4">
+                                  <label for="extra" class="col-form-label">Nombre de Costo </label>
+                <div class="input-group input-group-sm">
+
+
+
+                    <input  type="text"
+                            class="form-control form-control-sm text-center"
+                            id="extra"
+                            placeholder=""
+                            formControlName="nombre">
+                </div>
+              </div>
+
+              <div class="col-sm-4">
+                <label for="costo" class="col-form-label">Costo</label>
+                <div class="input-group input-group-sm">
+
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+                    </div>
+                    <input  type="text"
+                            class="form-control form-control-sm text-center"
+                            id="costo"
+                            placeholder=""
+                            formControlName="costo">
+                </div>
+              </div>
+            </div>
+            <button class="btn btn-info btn" type="button" (click)="onAddControlDirectoItem()">Agregar Costo Directo</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header text-center mb-2">
+        <button type="button" class="btn text-left pl-5" (click)="isCostosIndirectosCollapsed = !isCostosIndirectosCollapsed"
+        [attr.aria-expanded]="!isCostosIndirectosCollapsed" aria-controls="isCostosIndirectosCollapsed" style="">
+          Costos Indirectos
+        </button>
+      </div>
+      <div class="card-body" *ngIf="isCostosIndirectosCollapsed">
+          <div [formGroup]="costosIndirectos">
+            <div class="form-group row col-sm-12" >
+              <label for="proyectoIndirecto" class="col-sm-2 col-form-label">Proyecto </label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">$ x m<sup>2</sup> &nbsp; construido</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="proyectoIndirecto"
+                          placeholder="$"
+                          formControlName="proyectoIndirecto">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row col-sm-12" >
+              <label for="licenciaConformidadObra" class="col-sm-5 col-form-label">Licencia de Conformida de obra </label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">% de costo directo</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="licenciaConformidadObra"
+                          placeholder="%"
+                          formControlName="licenciaConformidadObra">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row col-sm-12" >
+              <label for="autoavaluoPropiedadMayor" class="col-sm-5 col-form-label">Autoavaluo Propiedad- Mayor Valor</label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">(unidades deptos + cocheras) x $</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="autoavaluoPropiedadMayor"
+                          placeholder="$"
+                          formControlName="autoavaluoPropiedadMayor">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row col-sm-12" >
+              <label for="abogadoRegistros" class="col-sm-4 col-form-label">Abogado Registros</label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">$ x (depts. + cocheras)</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="abogadoRegistros"
+                          placeholder="$"
+                          formControlName="abogadoRegistros">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row col-sm-12" >
+              <label for="notariaRegistrosDeptos" class="col-sm-4 col-form-label">Notaria Registros Deptos y Cocheras</label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">$ x (depts. + cocheras)</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="notariaRegistrosDeptos"
+                          placeholder="$"
+                          formControlName="notariaRegistrosDeptos">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row col-sm-12" >
+              <label for="notariaRegistrosTerreno" class="col-sm-4 col-form-label">Notaria Registros de Terreno</label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="notariaRegistrosTerreno"
+                          placeholder="$"
+                          formControlName="notariaRegistrosTerreno">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row col-sm-12" >
+              <label for="alcabala" class="col-sm-4 col-form-label">Alcabala</label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">% de $ Precio Terreno</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="alcabala"
+                          placeholder="%"
+                          formControlName="alcabala">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row col-sm-12" >
+              <label for="demolicion" class="col-sm-4 col-form-label">Demolicion</label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="demolicion"
+                          placeholder="$"
+                          formControlName="demolicion">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group row col-sm-12" >
+              <label for="serpar" class="col-sm-4 col-form-label">Servicios y Parque</label>
+              <div class="col-sm-5">
+                <div class="input-group input-group-sm">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-sm">%</span>
+                  </div>
+                  <!-- input -->
+                  <input  type="text"
+                          class="form-control form-control-sm"
+                          id="serpar"
+                          placeholder="%"
+                          formControlName="serpar">
+                  <!-- <button type="button" class="btn btn-success btn-sm"><i class="fas fa-plus"></i>
+                  </button> -->
+                </div>
+              </div>
+            </div>
+
+            <hr>
+            <div formArrayName="costosIndirectosPlus">
+
+              <div *ngFor="let costoIndirectoControl of costosIndirectos.get('costosIndirectosPlus').controls; let i = index"
+                    [formGroupName]="i" class="form-group row col-sm-12">
+
+                <div class="col-sm-1 d-flex align-items-center">
+                  <button type="button" class="btn btn-danger btn-sm" (click)="onDeletecostoIndirectos(i)"><i class="fa fa-times" aria-hidden="true"></i></button>
+                </div>
+                <div class="col-sm-4">
+                                    <label for="extra" class="col-form-label">Nombre de Costo </label>
+                  <div class="input-group input-group-sm">
+                      <input  type="text"
+                              class="form-control form-control-sm text-center"
+                              id="extra"
+                              placeholder=""
+                              formControlName="nombre">
+                  </div>
+                </div>
+
+                <div class="col-sm-4">
+                  <label for="costo" class="col-form-label">Costo</label>
+                  <div class="input-group input-group-sm">
+
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-sm">$</span>
+                      </div>
+                      <input  type="text"
+                              class="form-control form-control-sm text-center"
+                              id="costo"
+                              placeholder=""
+                              formControlName="costo">
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-info btn" type="button" (click)="onAddControlCostoIndirectoItem()">Agregar Costo Indirecto</button>
+            </div>
+
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="row mb-3">
+  <div class="col-sm-12">
+    <div class="card">
+      <div class="card-header text-center mb-2 test">
+        <button type="button" class="btn text-left pl-5" (click)="isCollapsed = !isCollapsed"
+        [attr.aria-expanded]="!isCollapsed" aria-controls="collapseExample" style="">
+          Toggle
+        </button>
+      </div>
+      <div class="card-body" *ngIf="isCollapsed">
+        You can collapse this card by clicking Toggle
+      </div>
+    </div>
+  </div>
+</div> -->

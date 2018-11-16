@@ -1,0 +1,111 @@
+  <div class="container text-right">
+    <a class="btn btn-outline-secondary text-center" href="">
+      <i class="fas fa-print fa-2x"></i>
+      <h6>Imprimir</h6>
+    </a>
+  </div>
+  <div class="card mt-3">
+    <div class="card-header text-center mb-2">
+      <!-- (click)="=" -->
+      <button type="button" class="btn text-center pl-5" (click)="cabidaCollapsed=!cabidaCollapsed"
+      [attr.aria-expanded]="!cabidaCollapsed" aria-controls="collapseCabida" style="font-size: 2rem; color: #778899">
+        Cabida Tablas
+      </button>
+    </div>
+    <div class="card-body" *ngIf="cabidaCollapsed">
+      <div *ngIf="cabidaCategory">
+        <div class="mb-4">
+          <h5>Primer Piso Departamentos</h5>
+          <app-cabida-table [displayedColumns]="primerPisoColumns" [proyectoForm]="proyectoForm" [tableType]="dataService.types.PRIDPTOS"></app-cabida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Primer Piso Total</h5>
+          <app-cabida-table [displayedColumns]="primerPisoTotalColumns" [proyectoForm]="proyectoForm" [tableType]="dataService.types.PRIDPTOSTOTAL"></app-cabida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Piso Tipico Deparamentos</h5>
+          <app-cabida-table [displayedColumns]="tipicoPisoColumns" [proyectoForm]="proyectoForm" [tableType]="dataService.types.TIPDPTOS"></app-cabida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Piso Tipico Total</h5>
+          <app-cabida-table [displayedColumns]="tipicoPisoTotalColumns" [proyectoForm]="proyectoForm" [tableType]="dataService.types.TIPDPTOSTOTAL"></app-cabida-table>
+        </div>
+
+        <div class="mb-4">
+          <div *ngIf="showTerraceTable">
+            <h5>Piso con Terraza Dptos.</h5>
+            <app-cabida-table [displayedColumns]="terrazaPisoColumns" [proyectoForm]="proyectoForm" [tableType]="dataService.types.TERDPTOS"></app-cabida-table>
+            <h5>Piso con Terraza total</h5>
+            <app-cabida-table [displayedColumns]="terrazaPisoTotalColumns" [proyectoForm]="proyectoForm" [tableType]="dataService.types.TERDPTOSTOTAL"></app-cabida-table>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <h5>Total Cabida</h5>
+          <app-cabida-table [displayedColumns]="totalColumns" [proyectoForm]="proyectoForm" [tableType]="dataService.types.TOTAL"></app-cabida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Cocheras</h5>
+          <app-cabida-table [displayedColumns]="cocheras" [proyectoForm]="proyectoForm" [tableType]="dataService.types.COCHERAS"></app-cabida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Sotanos</h5>
+          <app-cabida-table [displayedColumns]="cocheras" [proyectoForm]="proyectoForm" [tableType]="dataService.types.SOTANOS"></app-cabida-table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="card mt-3">
+    <div class="card-header text-center mb-2">
+      <button type="button" class="btn text-center pl-5" (click)="corridaCollapsed=!corridaCollapsed"
+      [attr.aria-expanded]="!corridaCollapsed" aria-controls="corridaCollapsed" style="font-size: 2rem; color: #778899">
+        Corrida Tablas
+      </button>
+    </div>
+    <div class="card-body" *ngIf="corridaCollapsed">
+      <div *ngIf="corridaCategory">
+        <div class="mb-4">
+          <h5>Ventas</h5>
+          <app-cabida-table [displayedColumns]="ventasColumns" [proyectoForm]="proyectoForm" [tableType]="dataService.types.VENTAS"></app-cabida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Costos Directos</h5>
+          <app-corrida-table [displayedColumns]="costosDirectosColumns" [proyectoForm]="proyectoForm" [tableType]="dataServiceCorrida.types.DIRECTOS"></app-corrida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Costos Indirectos</h5>
+          <app-corrida-table [displayedColumns]="costosIndirectosColumns" [proyectoForm]="proyectoForm" [tableType]="dataServiceCorrida.types.INDIRECTOS"></app-corrida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Costos Totales</h5>
+          <app-corrida-table [displayedColumns]="costosTotales" [proyectoForm]="proyectoForm" [tableType]="dataServiceCorrida.types.COSTOSTOTALES"></app-corrida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Utilidad del Proyecto</h5>
+          <app-corrida-table [displayedColumns]="utilidadColumns" [proyectoForm]="proyectoForm" [tableType]="dataServiceCorrida.types.UTILIDAD"></app-corrida-table>
+        </div>
+
+        <div class="mb-4">
+          <h5>Ratios de Gestion</h5>
+          <app-corrida-table [displayedColumns]="ratiosDeGestionColumns" [proyectoForm]="proyectoForm" [tableType]="dataServiceCorrida.types.GESTION"></app-corrida-table>
+        </div>
+      <div>
+    </div>
+  </div>
+
+
+
+<!-- <h3>Piso Tipico</h3>
+<app-cabida-table [displayedColumns]="tipicoPisoColumns" [cabida]="cabida" [tableType]="dataService.TableTypes.PRIDPTOS"></app-cabida-table> -->
+<!-- [tableType]="dataService.TableTypes.PRIDPTOS" -->

@@ -1,0 +1,17 @@
+.navbar{
+  opacity: 0.8;
+  border-bottom: #C0C0C0 2px solid;
+}
+
+.backend-container{
+  min-height: 75vh;
+}
+
+.page-footer{
+  opacity: 0.8;
+  border-top: #DCDCDC 1px solid;
+}
+
+.backend-content{
+  height: 100%;
+}

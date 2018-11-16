@@ -1,0 +1,11 @@
+td{
+  vertical-align: middle;
+}
+
+th{
+  background-color: rgba(0,0,0,.03);
+}
+
+td.mat-cell, td.mat-footer-cell, th.mat-header-cell{
+  padding-left: 10px;
+}

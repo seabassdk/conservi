@@ -1,0 +1,87 @@
+<div class="mat-elevation-z8">
+  <table class="table table-bordered" mat-table #table [dataSource]="dataSource" matSort aria-label="Elements">
+    <!-- COSTOS DIRECTOS-->
+    <ng-container  matColumnDef="directosTitulo">
+      <th  mat-header-cell *matHeaderCellDef mat-sort-header></th>
+      <td class="pr-5" mat-cell *matCellDef="let row">{{row.directosTitulo}}</td>
+    </ng-container>
+    <ng-container matColumnDef="proporciones">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>%</th>
+      <td class="pr-5" mat-cell *matCellDef="let row">{{row.proporciones | percent}}</td>
+    </ng-container>
+    <ng-container matColumnDef="metrosCuadrado">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>$ x m<sup>2</sup></th>
+      <td class="pr-5" mat-cell *matCellDef="let row">{{row.metrosCuadrado | number:'1.0-2'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="dolarPorMq">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>$</th>
+      <td class="pr-5" mat-cell *matCellDef="let row">{{row.dolarPorMq | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="costoDolar">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Costo $</th>
+      <td class="pr-5" mat-cell *matCellDef="let row">{{row.costoDolar | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+    </ng-container>
+    <ng-container matColumnDef="costoSoles">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>S/.</th>
+      <td class="pr-5"mat-cell *matCellDef="let row">{{row.costoSoles}}</td>
+    </ng-container>
+
+
+
+  <!-- COSTOS INDIRECTOS -->
+  <ng-container matColumnDef="indirectosTitulo">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header></th>
+    <td class="pr-5"mat-cell *matCellDef="let row">{{row.indirectosTitulo}}</td>
+  </ng-container>
+  <ng-container matColumnDef="medida">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>unidades</th>
+    <td class="pr-5"mat-cell *matCellDef="let row">{{row.medida}}</td>
+  </ng-container>
+  <ng-container matColumnDef="cantidad">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Cantidad</th>
+    <td class="pr-5"mat-cell *matCellDef="let row">{{row.cantidad}}</td>
+  </ng-container>
+  <ng-container matColumnDef="cu">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>C.U.</th>
+    <td class="pr-5"mat-cell *matCellDef="let row">{{row.cu}}</td>
+  </ng-container>
+  <ng-container matColumnDef="totalDolares">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Costo $</th>
+    <td class="pr-5"mat-cell *matCellDef="let row">{{row.totalDolares | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+  </ng-container>
+  <ng-container matColumnDef="totalSoles">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Costo S/.</th>
+    <td class="pr-5"mat-cell *matCellDef="let row">{{row.totalSoles}}</td>
+  </ng-container>
+
+  <!-- UTILIDAD -->
+  <ng-container matColumnDef="dolarMonto">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Monto $</th>
+    <td class="pr-5"mat-cell *matCellDef="let row">{{row.dolarMonto | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+  </ng-container>
+  <ng-container matColumnDef="dolarPorMqVentas">
+    <th class="pl-2 pr-5" mat-header-cell *matHeaderCellDef mat-sort-header>$ x m<sup>2</sup></th>
+    <td class="pl-2 pr-5" mat-cell *matCellDef="let row">{{row.dolarPorMqVentas | currency:'USD':'symbol-narrow':'1.0-0'}}</td>
+  </ng-container>
+
+  <!-- Gestion Ratios -->
+  <ng-container matColumnDef="proyectoRatios">
+    <th mat-header-cell *matHeaderCellDef mat-sort-header>Proyecto</th>
+    <td class="pr-5"mat-cell *matCellDef="let row">{{row.proyectoRatios | percent}}</td>
+  </ng-container>
+  <ng-container matColumnDef="bancoRatios">
+    <th class="pl-2 pr-5" mat-header-cell *matHeaderCellDef mat-sort-header>Banco</th>
+    <td class="pl-2 pr-5" mat-cell *matCellDef="let row">{{row.bancoRatios | percent}}</td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr class="pr-3" mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+  <!-- <mat-paginator #paginator
+    [length]="dataSource.data.length"
+    [pageIndex]="0"
+    [pageSize]="50"
+    [pageSizeOptions]="[25, 50, 100, 250]">
+  </mat-paginator> -->
+</div>

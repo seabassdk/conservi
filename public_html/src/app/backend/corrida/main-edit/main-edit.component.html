@@ -1,0 +1,107 @@
+<div class="container cab-container mt-5">
+  <!-- Row for selecting project -->
+  <div class="row">
+      <div class="col-sm-12 mb-3 d-flex justify-content-center">
+        <h4 class="text-muted"></h4>
+      </div>
+  </div>
+  <div class="form-group row">
+    <label class="col-form-label col-sm-3" for="exampleFormControlSelect1">Elegir proyecto: </label>
+    <div class="col-sm-6">
+      <select class="form-control " id="exampleFormControlSelect1" [(ngModel)]="selectDefault" (ngModelChange)="onSelectChange($event)">
+        <option *ngFor="let corrida of corridas; let i = index" [ngValue]="i" >{{corrida.nombre}} - {{corrida.direccion}}</option>
+      </select>
+    </div>
+    <button type="button" class="btn btn-primary" (click)="corridaIdForInputValues()">seleccionar</button>
+  </div>
+  <hr class="my-4">
+  <div class="row">
+      <div class="col-sm-12 mb-5 d-flex justify-content-center">
+        <h4 class="text-muted"></h4>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-md-6" >
+      <div [formGroup]="proyectoGen">
+
+          <div class="form-group">
+            <label for="NombreProyecto" class="">Nombre del Proyecto</label>
+            <input  type="text"
+                      class="form-control"
+                      id="NombreProyecto"
+                      placeholder="Nombre"
+                      formControlName="nombreProyecto">
+            <!-- <div class="invalid-feedback">
+              Sorry something is wrong?
+            </div> -->
+          </div>
+
+<!-- [ngClass]="{'is-invalid': address.invalid}" -->
+          <div class="form-group is-invalid">
+            <label for="addressInput">Direccion</label>
+            <input
+            ngx-google-places-autocomplete [options]='options'
+            #placesRef="ngx-places"
+            (onAddressChange)="handleAddressChange($event)"
+            (focusout)="onAddressChange($event)"
+            id="addressInput"
+            class="form-control"
+            placeholder="Inserte y elija la dirección correcta"
+            type="text"
+            formControlName="direccion"
+            #address>
+            <span class="mt-2" style="color: red; font-size:0.8rem" *ngIf="!addressExists">
+              inserta y elige una dirección del menu desplegable - {{addressExists}}
+            </span>
+          </div>
+
+          <div class="form-group">
+            <label for="precio" class="">Precio</label>
+            <input  type="text"
+                      class="form-control"
+                      id="precio"
+                      placeholder="Precio en $"
+                      formControlName="precio">
+            <!-- <div class="invalid-feedback">
+              Sorry something is wrong?
+            </div> -->
+          </div>
+
+          <div class="form-group">
+            <label for="area" class="">Area (m<sup>2</sup>)</label>
+            <input  type="text"
+                      class="form-control"
+                      id="area"
+                      placeholder="Area"
+                      formControlName="area">
+            <!-- <div class="invalid-feedback">
+              Sorry something is wrong?
+            </div> -->
+          </div>
+
+          <div class="form-group" *ngIf="false">
+            <input  type="text" formControlName="addressObject">
+          </div>
+          <div class="form-group" *ngIf="false">
+            <input  type="text" formControlName="direccionNumero">
+          </div>
+          <div class="form-group" *ngIf="false">
+            <input  type="text" formControlName="distrito">
+          </div>
+
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-6">
+      <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoomlvl" #agmmap>
+        <!-- <agm-circle [latitude]="lat" [longitude]="lng"
+            [radius]="5000"
+            [fillColor]="'red'"></agm-circle> -->
+        <agm-marker
+          [latitude]="lat"
+          [longitude]="lng"
+          [iconUrl]="iconUrl"
+          ></agm-marker>
+      </agm-map>
+    </div>
+  </div>
+</div>

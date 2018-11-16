@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="row">
+    <!-- style="border-right: 1px solid #ccc;" -->
+    <div class="d-none d-lg-block col-lg-2 pt-5 pl-0">
+      <div class="d-flex flex-column justify-left pt-2">
+        <button type="button" class="btn btn-lg btn-info mb-3 px-1" (click)="showTables = false">Inputs Corrida</button>
+        <!--    [disabled]="!proyectoForm.valid" -->
+        <button type="submit"
+                class="btn btn-lg btn-primary mb-3 px-1"
+                [disabled]="!proyectoForm.valid"
+                (click)="onSubmit()"
+                style="font-size: 1.1rem;">Guardar Corrida</button>
+        <button type="button" class="btn btn-lg btn-primary mb-3" (click)="showTables = true">Tablas</button>
+        <button type="button" class="btn btn-lg btn-success mb-3" disabled>Bajar Excel</button>
+      </div>
+    </div>
+    <div class="d-lg-none mx-auto mb-3">
+        <button type="button" class="btn btn-primary mx-3" disabled>Guardar</button>
+        <button type="button" class="btn btn-primary mx-3" disabled>Tablas</button>
+        <button type="button" class="btn btn-success mx-3" disabled>Bajar Excel</button>
+    </div>
+    <!-- Make a dividing vertical line -->
+    <div class="col-lg-1">
+      <div style="border-right: 1px solid #ccc; width: 50%; height: 100%"></div>
+    </div>
+<!--style="border: 1px solid blue"  -->
+    <div class="col-lg-9 col-md-12 mt-5" *ngIf="!showTables">
+      <form [formGroup]="proyectoForm" (ngSubmit)="onSubmit()">
+          <ngb-tabset>
+            <ngb-tab title="Proyecto">
+              <ng-template ngbTabContent>
+                <app-main-edit [proyectoGen]="proyectoForm.controls.proyectoGen"
+                                (idOfSelectedCorrida)="populateForm($event)">
+                </app-main-edit>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Cabida">
+              <ng-template ngbTabContent>
+                <app-cabida-edit  [proyectoForm]="proyectoForm"
+                                  [cabida]="proyectoForm.controls.cabida"
+                                  [cabConstruccion]="proyectoForm.controls.cabida.controls.cabConstruccion"
+                                  [cabAreasDptos]="proyectoForm.controls.cabida.controls.cabAreasDptos"
+                                  [cabCocheras]="proyectoForm.controls.cabida.controls.cabCocheras"
+                                  [cabPrimerPisoAreaComun]="proyectoForm.controls.cabida.controls.cabPrimerPisoAreaComun"
+                                  [cabTerraza]="proyectoForm.controls.cabida.controls.cabTerraza"
+                                  [areaTerrenoVal]="proyectoForm.controls.proyectoGen.get('area').value">
+                </app-cabida-edit>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Corrida">
+              <ng-template ngbTabContent>
+                <app-corrida-edit [proyectoForm]="proyectoForm"
+                                  [cabida]="proyectoForm.controls.cabida"
+                                  [corrida]="proyectoForm.controls.corrida"
+                                  [generalInfo]="proyectoForm.controls.corrida.controls.generalInfo"
+                                  [terrenoCostos]="proyectoForm.controls.corrida.controls.terrenoCostos"
+                                  [proyectoVentas]="proyectoForm.controls.corrida.controls.proyectoVentas"
+                                  [costosDirectos]="proyectoForm.controls.corrida.controls.costosDirectos"
+                                  [costosIndirectos]="proyectoForm.controls.corrida.controls.costosIndirectos"
+                                  [costosDirectosPlus]="proyectoForm.controls.corrida.controls.costosDirectos.controls.costosDirectosPlus"
+                                  [costosIndirectosPlus]="proyectoForm.controls.corrida.controls.costosIndirectosPlus">
+                </app-corrida-edit>
+              </ng-template>
+            </ngb-tab>
+            <ngb-tab title="Flujo Caja">
+              <ng-template ngbTabContent>
+              </ng-template>
+            </ngb-tab>
+          </ngb-tabset>
+        </form>
+    </div> <!-- closes md-9 -->
+
+    <div class="col-lg-9 col-md-12 mt-5" *ngIf="showTables">
+      <app-tables  [proyectoForm]="proyectoForm" [tableCategory]="'all'"></app-tables>
+    </div>
+  </div> <!-- closes row -->
+</div> <!-- closes container -->
